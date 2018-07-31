@@ -56,10 +56,12 @@
       <div id="signup" :class="{'available': canSignUp}">Sign up</div>
     </div>
   </div>
+  <Canvas></Canvas>
 </div>
 </template>
 
 <script>
+import Canvas from './Canvas.vue';
 export default {
   name: 'Login',
   methods: {
@@ -104,6 +106,9 @@ export default {
       emailRegex: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     }
   },
+  components: {
+      'Canvas': Canvas
+  }
 }
 </script>
 
@@ -125,6 +130,7 @@ export default {
         border-radius: 10px;
         overflow: hidden;
         transition: height 0.1s ease;
+        z-index: 99999999;
 
         &.expand {
             height: 390px;
